@@ -13,3 +13,4 @@ pyjwt
 pillow
 imagehash
 slowapi
+geoalchemy2

@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from config import DATABASE_URL
+from sqlalchemy import Column, Table, Uuid
 
 database_url = DATABASE_URL
 if database_url.startswith("postgresql://"):
@@ -20,6 +21,12 @@ engine = create_engine(
 
 class Base(DeclarativeBase):
     pass
+auth_users_reference = Table(
+    "users",
+    Base.metadata,
+    Column("id", Uuid, primary_key=True),
+    schema="auth",
+)
 
 
 SessionLocal = sessionmaker(
