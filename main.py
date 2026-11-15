@@ -4,6 +4,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from sqlalchemy import create_engine, text
+from routers.auth import router as auth_router
 
 load_dotenv(Path(__file__).parent / ".env")
 
@@ -24,6 +25,7 @@ engine = create_engine(
 )
 
 app = FastAPI()
+app.include_router(auth_router)
 
 
 @app.get("/health/db")

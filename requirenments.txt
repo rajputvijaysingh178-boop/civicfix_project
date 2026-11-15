@@ -14,3 +14,5 @@ pillow
 imagehash
 slowapi
 geoalchemy2
+email-validator
+supabase

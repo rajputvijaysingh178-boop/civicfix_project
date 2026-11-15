@@ -25,6 +25,11 @@ class ComplaintMedia(Base):
     id:Mapped[int]=mapped_column(primary_key=True,index=True)
     complaint_id:Mapped[int]=mapped_column(ForeignKey("complaints.id",ondelete="CASCADE"),nullable=False,)
     storage_path:Mapped[str]=mapped_column(String(1000),nullable=False)
+    content_hash: Mapped[str | None] = mapped_column(
+    String(64),
+    nullable=True,
+    index=True,
+)
     kind:Mapped[str]=mapped_column(String(100),nullable=False)
     uploaded_by:Mapped[UUID | None]=mapped_column(ForeignKey("auth.users.id"),nullable=True,)
     captured_lat: Mapped[float | None] = mapped_column(Float, nullable=True)

@@ -9,3 +9,4 @@ from models.duplicate_link import DuplicateLink
 from models.verification import ResolutionVerification
 from models.hotspot import HotspotSnapshot
 from models.audit_log import AuditLog
+from models.complaint_support import ComplaintSupport
